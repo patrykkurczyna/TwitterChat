@@ -46,7 +46,7 @@ public class HelloServlet extends HttpServlet {
         CursoredList<TwitterProfile> friends = twitter.friendOperations().getFriends();
         request.setAttribute("friends", friends);
         request.setAttribute("message", "ehlo!");
-        request.getRequestDispatcher("/jsp/hello.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/new.jsp").forward(request, response);
     }
 
 
