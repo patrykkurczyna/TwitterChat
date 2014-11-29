@@ -1,7 +1,9 @@
 package org.tai.twitterchat.domain.chat;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,20 +12,21 @@ import org.tai.twitterchat.domain.model.User;
 
 public class ChatRoom {
 	private final String name;
-	private List<User> participants;
+	private Set<User> participants;
 	private List<ChatMessage> messages;
 	
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
 	
 	public ChatRoom(String name) {
 		this.messages = new ArrayList<ChatMessage>();
-		this.participants = new ArrayList<User>();
+		this.participants = new HashSet<User>();
 		this.name = name;
 	}
 	
 	public void addParticipant(User participant) {
-		participants.add(participant);
-		LOGGER.info("Room " + name + ": participant: " + participant.getLogin() + " enters!");
+		if (participants.add(participant)) {
+			LOGGER.info("Room " + name + ": participant: " + participant.getLogin() + " enters!");
+		};
 	}
 	
 	public boolean removeParticipant(User participant) {
@@ -57,11 +60,11 @@ public class ChatRoom {
 		return name;
 	}
 
-	public List<User> getParticipants() {
+	public Set<User> getParticipants() {
 		return participants;
 	}
 
-	public void setParticipants(List<User> participants) {
+	public void setParticipants(Set<User> participants) {
 		this.participants = participants;
 	}
 
