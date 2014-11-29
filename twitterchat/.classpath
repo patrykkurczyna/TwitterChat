@@ -156,6 +156,25 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-all/1.10.13/acd581c4f09907ef12c26cc26ed02677d1317b29/mockito-all-1.10.13.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-all/1.10.13/acd581c4f09907ef12c26cc26ed02677d1317b29/mockito-all-1.10.13.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-twitter/1.1.0.RELEASE/52078c4e045998d16e62ba41e2ec8d7e7ab2fd61/spring-social-twitter-1.1.0.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-twitter/1.1.0.RELEASE/8868e868bea7b397f5e03ac3fcaeba11cd29ea30/spring-social-twitter-1.1.0.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.1.0.RELEASE/17399004ca49180476dc90df4d379e1c9b62f850/spring-social-core-1.1.0.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework.social/spring-social-core/1.1.0.RELEASE/2f6f836d7ee473681a3cde7de89ccdf68432f2aa/spring-social-core-1.1.0.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-crypto/3.2.4.RELEASE/5f9b6bdc59ce2cb77c1f1fae8c3ea8f9a3323042/spring-security-crypto-3.2.4.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
