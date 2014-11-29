@@ -1,19 +1,39 @@
 package twitterchat;
 
+import static org.mockito.Mockito.when;
+
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.tai.twitterchat.domain.chat.ChatRoom;
 import org.tai.twitterchat.domain.model.User;
 
-//@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class ChatRoomTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoomTest.class);
     
+    @Mock
     private User user;
     
-    @Before 
+    @InjectMocks
+    private ChatRoom chatRoom = new ChatRoom("test");
+    
+    @Before
     public void setUp() {
-//
+    	MockitoAnnotations.initMocks(this);
     }
+  
+    @Test
+    public void testAddingParticipant() {   	
+    	when(user.getLogin()).thenReturn("user1");
+    	chatRoom.addParticipant(user);
+    	
+    	Assert.assertEquals(chatRoom.getParticipants().size(), 1);
+    }
+    
+    
 }

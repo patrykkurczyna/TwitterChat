@@ -1,160 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="src/test/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container" exported="true"/>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/2f5877ef15adb721421e80f5aa2b6fe069eec8ed/jstl-1.2-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar" exported="true">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/javax.servlet/jstl/1.2/2f5877ef15adb721421e80f5aa2b6fe069eec8ed/jstl-1.2-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.1.1.RELEASE/697af0165d36f2c1c481f0a94af5c2be796394d0/spring-webmvc-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.1.1.RELEASE/27f97cf47ac7e66915e4d42306bced91905998d6/spring-webmvc-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.1.1.RELEASE/27f97cf47ac7e66915e4d42306bced91905998d6/spring-webmvc-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.1.1.RELEASE/697af0165d36f2c1c481f0a94af5c2be796394d0/spring-webmvc-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.1.1.RELEASE/214b4d91741b7ef0c3d3afcda4f3af909f35bf97/spring-jdbc-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.1.1.RELEASE/7961fd80b1a39358a527110dcc2751e2535ca31f/spring-jdbc-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.1.1.RELEASE/7961fd80b1a39358a527110dcc2751e2535ca31f/spring-jdbc-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.1.1.RELEASE/214b4d91741b7ef0c3d3afcda4f3af909f35bf97/spring-jdbc-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/e651cbd93cb1c2155afdea6675c50e567f7ce91e/cglib-3.1-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/1f1cb6c7a7479e0c7fd7987109e503914bebe84a/cglib-3.1.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/1f1cb6c7a7479e0c7fd7987109e503914bebe84a/cglib-3.1.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/cglib/cglib/3.1/e651cbd93cb1c2155afdea6675c50e567f7ce91e/cglib-3.1-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/17.0/7ca0efbeb87ca845b5d7a0ac9c21a4b7b95f7b28/guava-17.0-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/17.0/9c6ef172e8de35fd8d4d8783e4821e57cdef7445/guava-17.0.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/17.0/9c6ef172e8de35fd8d4d8783e4821e57cdef7445/guava-17.0.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/17.0/7ca0efbeb87ca845b5d7a0ac9c21a4b7b95f7b28/guava-17.0-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.3.0/76eb119e9f7769c5b124afbfa17ed0c63cab4920/jackson-databind-2.3.0.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.3.0/76eb119e9f7769c5b124afbfa17ed0c63cab4920/jackson-databind-2.3.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.5/2bd5124dfb9198af70cad30eb9ccbfa9cd670163/joda-time-2.5-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.5/c73038a3688525aad5cf33409df483178290cd64/joda-time-2.5.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.5/c73038a3688525aad5cf33409df483178290cd64/joda-time-2.5.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.5/2bd5124dfb9198af70cad30eb9ccbfa9cd670163/joda-time-2.5-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/hsqldb/hsqldb/1.8.0.10/7e9978fdb754bce5fcd5161133e7734ecb683036/hsqldb-1.8.0.10.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/hsqldb/hsqldb/1.8.0.10/7e9978fdb754bce5fcd5161133e7734ecb683036/hsqldb-1.8.0.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/acd62e31cc314266e73eebed0b6dd7ea974a0ed/slf4j-api-1.7.7-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/acd62e31cc314266e73eebed0b6dd7ea974a0ed/slf4j-api-1.7.7-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/javax/javaee-web-api/6.0/ebec44255251e6d3b8ddbaf701f732daf0238cbf/javaee-web-api-6.0.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/javax/javaee-web-api/6.0/ebec44255251e6d3b8ddbaf701f732daf0238cbf/javaee-web-api-6.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.7/b5a646b81b899e930f8600c5f45766dd82743d93/jcl-over-slf4j-1.7.7-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.7/56003dcd0a31deea6391b9e2ef2f2dc90b205a92/jcl-over-slf4j-1.7.7.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.7/56003dcd0a31deea6391b9e2ef2f2dc90b205a92/jcl-over-slf4j-1.7.7.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.7/b5a646b81b899e930f8600c5f45766dd82743d93/jcl-over-slf4j-1.7.7-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.0.2/3e63809d6e07941f889370992d96e92a1b2813e1/log4j-slf4j-impl-2.0.2-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.0.2/f2cc4647e51810c3dd11df832229fac01d41aa51/log4j-slf4j-impl-2.0.2.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.0.2/f2cc4647e51810c3dd11df832229fac01d41aa51/log4j-slf4j-impl-2.0.2.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.0.2/3e63809d6e07941f889370992d96e92a1b2813e1/log4j-slf4j-impl-2.0.2-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.0.2/31e5d89b249dec5bfc38dd9c2ecba8307e0dea06/log4j-api-2.0.2-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.0.2/8bc86f5add32e0259d83d1b62ab64f9ecfda109d/log4j-api-2.0.2.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.0.2/8bc86f5add32e0259d83d1b62ab64f9ecfda109d/log4j-api-2.0.2.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.0.2/31e5d89b249dec5bfc38dd9c2ecba8307e0dea06/log4j-api-2.0.2-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.0.2/c5be482611e2cf5538ab55c4d93fab5220aaee29/log4j-core-2.0.2-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.0.2/13521c5364501478e28c77a7f86b90b6ed5dbb77/log4j-core-2.0.2.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.0.2/13521c5364501478e28c77a7f86b90b6ed5dbb77/log4j-core-2.0.2.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.0.2/c5be482611e2cf5538ab55c4d93fab5220aaee29/log4j-core-2.0.2-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-assert/1.4/c4f4f784a5b3fd0bbb519ca5b109066b11cbb390/fest-assert-1.4-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-assert/1.4/88ec2d3bbc35a2e9613f584b29e26adb1bc2c515/fest-assert-1.4.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-assert/1.4/88ec2d3bbc35a2e9613f584b29e26adb1bc2c515/fest-assert-1.4.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-assert/1.4/c4f4f784a5b3fd0bbb519ca5b109066b11cbb390/fest-assert-1.4-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.1.1.RELEASE/2e88d8a990e5f1ffa93b3e2a83ba9535b562aabd/spring-test-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.1.1.RELEASE/406ce9c05253f7dd75ac3f31170c71cca7419d8a/spring-test-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.1.1.RELEASE/406ce9c05253f7dd75ac3f31170c71cca7419d8a/spring-test-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.1.1.RELEASE/2e88d8a990e5f1ffa93b3e2a83ba9535b562aabd/spring-test-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.1.1.RELEASE/6945f40ede50763093412c7436376e777421ddb2/spring-beans-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.1.1.RELEASE/a44061faf47da974376bbfa6e84e316046d45c8c/spring-beans-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.1.1.RELEASE/a44061faf47da974376bbfa6e84e316046d45c8c/spring-beans-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.1.1.RELEASE/6945f40ede50763093412c7436376e777421ddb2/spring-beans-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.1.1.RELEASE/1b69bb54483ab092b83fc4c765e6694f3af7348f/spring-context-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.1.1.RELEASE/3c79ab100df285ea0cc0b4543fe4042543405001/spring-context-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.1.1.RELEASE/3c79ab100df285ea0cc0b4543fe4042543405001/spring-context-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.1.1.RELEASE/1b69bb54483ab092b83fc4c765e6694f3af7348f/spring-context-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.1.RELEASE/4bd6cb7e742a6342ab039de1ed26fe54e33be591/spring-core-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.1.RELEASE/4b0c607ba83c95ad9ea3defd40c35ae47c5df7d0/spring-core-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.1.RELEASE/4b0c607ba83c95ad9ea3defd40c35ae47c5df7d0/spring-core-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.1.1.RELEASE/4bd6cb7e742a6342ab039de1ed26fe54e33be591/spring-core-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.1.1.RELEASE/1719ef93281026ae09e94b71f8179e1514ea2b9d/spring-expression-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.1.1.RELEASE/c86cad6880c3f5c13a81677411b6f41873c80e75/spring-expression-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.1.1.RELEASE/c86cad6880c3f5c13a81677411b6f41873c80e75/spring-expression-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.1.1.RELEASE/1719ef93281026ae09e94b71f8179e1514ea2b9d/spring-expression-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.1.1.RELEASE/a841bc213ddb3344d9e5447c8aca3f36becddb54/spring-web-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.1.1.RELEASE/c496e2c84b7275309bbe29d2fa90a968acce9ce9/spring-web-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.1.1.RELEASE/c496e2c84b7275309bbe29d2fa90a968acce9ce9/spring-web-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.1.1.RELEASE/a841bc213ddb3344d9e5447c8aca3f36becddb54/spring-web-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.1.1.RELEASE/9ce6cc2a5557191548aad6e08ad323eea424ab0f/spring-tx-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.1.1.RELEASE/7025c6f9736feed7893a59730b56fa0a1569580c/spring-tx-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.1.1.RELEASE/7025c6f9736feed7893a59730b56fa0a1569580c/spring-tx-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.1.1.RELEASE/9ce6cc2a5557191548aad6e08ad323eea424ab0f/spring-tx-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/10735cd06b779a5f172fba69ea6f7b9cdc61a4d/asm-4.2-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/4b2c12b92dd045aeabf5b2aeeb3220bf010da9d4/asm-4.2.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/4b2c12b92dd045aeabf5b2aeeb3220bf010da9d4/asm-4.2.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.2/10735cd06b779a5f172fba69ea6f7b9cdc61a4d/asm-4.2-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/cc964b08f8d37e3d8465de923b9e6321107a5429/jackson-annotations-2.3.0-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/f5e853a20b60758922453d56f9ae1e64af5cb3da/jackson-annotations-2.3.0.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/f5e853a20b60758922453d56f9ae1e64af5cb3da/jackson-annotations-2.3.0.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/cc964b08f8d37e3d8465de923b9e6321107a5429/jackson-annotations-2.3.0-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.0/f96b1206b2f452bcc5e096d7594bd3e5568debbb/jackson-core-2.3.0-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.0/5e19d8381e01aa64c9dd47ff453e39abc441775c/jackson-core-2.3.0.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.0/5e19d8381e01aa64c9dd47ff453e39abc441775c/jackson-core-2.3.0.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.0/f96b1206b2f452bcc5e096d7594bd3e5568debbb/jackson-core-2.3.0-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-util/1.1.6/3494b4ee34ac42be816e155a9e2897a88fcedea6/fest-util-1.1.6-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-util/1.1.6/e785ee9c1f314bbf9e5a824b85143e440642557a/fest-util-1.1.6.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-util/1.1.6/e785ee9c1f314bbf9e5a824b85143e440642557a/fest-util-1.1.6.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.easytesting/fest-util/1.1.6/3494b4ee34ac42be816e155a9e2897a88fcedea6/fest-util-1.1.6-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.1.1.RELEASE/34f77ba9c1df0604051c1e9511e0555286509ef9/spring-aop-4.1.1.RELEASE-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.1.1.RELEASE/5175950be849e409f328bd4ea0f16f3ea9466359/spring-aop-4.1.1.RELEASE.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.1.1.RELEASE/5175950be849e409f328bd4ea0f16f3ea9466359/spring-aop-4.1.1.RELEASE.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.1.1.RELEASE/34f77ba9c1df0604051c1e9511e0555286509ef9/spring-aop-4.1.1.RELEASE-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" exported="true">
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" sourcepath="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/patrykkurczyna/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-all/1.10.13/acd581c4f09907ef12c26cc26ed02677d1317b29/mockito-all-1.10.13.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
