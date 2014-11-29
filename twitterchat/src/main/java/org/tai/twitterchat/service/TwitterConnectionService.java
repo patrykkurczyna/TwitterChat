@@ -9,7 +9,6 @@ import org.springframework.social.twitter.api.DirectMessage;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
-import org.springframework.stereotype.Service;
 import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.domain.model.UserRole;
 
@@ -19,7 +18,6 @@ import org.tai.twitterchat.domain.model.UserRole;
  * @author patrykkurczyna
  *
  */
-@Service
 public class TwitterConnectionService {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(TwitterConnectionService.class);
@@ -50,12 +48,13 @@ public class TwitterConnectionService {
 	 * @param username Sender twitter screenName
 	 * @param msg Message text
 	 */
-	public void sendMessage(String username, String msg) {
+	public DirectMessage sendMessage(String username, String msg) {
 		if (user.getUserRole() == UserRole.OBSERVER) {
 			LOGGER.error("Cannot sending message: '" + "' to user: " + username + "! You do not have permissions to write");
+			return null;
 		} else {
 			LOGGER.info("Sending message: '" + "' to user: " + username);
-			twitter.directMessageOperations().sendDirectMessage(username, msg);			
+			return twitter.directMessageOperations().sendDirectMessage(username, msg);			
 		}
 	}
 
