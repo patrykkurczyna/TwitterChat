@@ -14,7 +14,23 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<!-- Shiro filter -->
+	<filter>
+		<filter-name>ShiroFilter</filter-name>
 
+		<filter-class>
+			org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>ShiroFilter</filter-name>
+		<url-pattern>/home</url-pattern>
+	</filter-mapping>
+	
 	<servlet>
 		<servlet-name>helloServlet</servlet-name>
 		<servlet-class>org.tai.twitterchat.web.servlet.HelloServlet</servlet-class>
