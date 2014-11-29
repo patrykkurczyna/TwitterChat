@@ -11,6 +11,7 @@ import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
 import org.springframework.stereotype.Service;
 import org.tai.twitterchat.domain.model.User;
+import org.tai.twitterchat.domain.model.UserRole;
 
 /**
  * This service is used to connect with twitter API and perform operations
@@ -24,8 +25,10 @@ public class TwitterConnectionService {
 			.getLogger(TwitterConnectionService.class);
 
 	private Twitter twitter;
+	private User user;
 
 	public TwitterConnectionService(User user) {
+		this.user = user;
 		this.twitter = new TwitterTemplate(user.getConsumerKey(),
 				user.getConsumerSecret(), user.getConsumerAccessToken(),
 				user.getConsumerAccessSecret());
@@ -40,10 +43,20 @@ public class TwitterConnectionService {
 		LOGGER.info("Friends retrieved successfully");
 		return twitter.friendOperations().getFriends();
 	}
-
-	public void sendMessage(String user, String msg) {
-		LOGGER.info("Sending message: '" + "' to user: " + user);
-		twitter.directMessageOperations().sendDirectMessage(user, msg);
+	
+	/**
+	 * Method for sending messages to other users via twitter
+	 * It do not allow sending messages by users with role OBSERVER
+	 * @param username Sender twitter screenName
+	 * @param msg Message text
+	 */
+	public void sendMessage(String username, String msg) {
+		if (user.getUserRole() == UserRole.OBSERVER) {
+			LOGGER.error("Cannot sending message: '" + "' to user: " + username + "! You do not have permissions to write");
+		} else {
+			LOGGER.info("Sending message: '" + "' to user: " + username);
+			twitter.directMessageOperations().sendDirectMessage(username, msg);			
+		}
 	}
 
 	public List<DirectMessage> getDirectMessages() {
