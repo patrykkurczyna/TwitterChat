@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.CursoredList;
 import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.stereotype.Controller;
@@ -20,14 +19,10 @@ public class HelloServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 9049787261928772648L;
 	
-	@Autowired
-	private TwitterConnectionService service;
-	
-	public HelloServlet() {
-	}
-	
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {   	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+    	
+    	TwitterConnectionService service = new TwitterConnectionService();
         request.setAttribute("twitterProfile", service.getProfile());
         CursoredList<TwitterProfile> friends = service.getFriends();
         request.setAttribute("friends", friends);
