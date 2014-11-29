@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * This class is responsible for filtering servlet request through specific filter chain
  * @author patrykkurczyna
  */
 public class ProfilingFilter implements Filter {
@@ -26,7 +27,11 @@ public class ProfilingFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
-
+    
+    /**
+     * Method for filtering servlet request
+     * It also logs how much time did request take
+     */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         final Stopwatch stopwatch = Stopwatch.createStarted();
