@@ -9,18 +9,43 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.social.twitter.api.DirectMessage;
 import org.tai.twitterchat.domain.model.ChatMessage;
+import org.tai.twitterchat.domain.model.User;
+import org.tai.twitterchat.service.TwitterConnectionService;
 
 public class ChatRoom {
 	private final String name;
 	private Set<String> participants;
 	private List<DirectMessage> messages;
+	private User admin;
 	
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
+    
+    private TwitterConnectionService service;
 	
-	public ChatRoom(String name) {
+    public ChatRoom(String name) {
 		this.messages = new ArrayList<DirectMessage>();
 		this.participants = new HashSet<String>();
 		this.name = name;
+    }
+    
+	public ChatRoom(String name, User admin) {
+		this(name);
+		this.admin = admin;
+		this.service = new TwitterConnectionService(admin);
+	}
+	
+	public ChatRoom(String name, TwitterConnectionService service) {
+		this(name);
+		this.service = service;
+	}
+	
+	public void synchronizeWithTwitter() {
+		for (DirectMessage msg : service.getDirectMessages()){
+			if (!messages.contains(msg)) {
+				LOGGER.info("There is a new message from twitter! Adding to chat: " + msg.getText() + " from " + msg.getSender().getName());
+				messages.add(msg);
+			}
+		}
 	}
 	
 	public void addParticipant(String participant) {

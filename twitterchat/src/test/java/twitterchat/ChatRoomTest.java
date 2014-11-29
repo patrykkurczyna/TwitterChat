@@ -1,7 +1,7 @@
 package twitterchat;
 
 import static org.mockito.Mockito.when;
-
+import static twitterchat.TestProperties.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +16,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.social.twitter.api.DirectMessage;
 import org.springframework.social.twitter.api.TwitterProfile;
 import org.tai.twitterchat.domain.chat.ChatRoom;
+import org.tai.twitterchat.domain.model.User;
+import org.tai.twitterchat.service.TwitterConnectionService;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class ChatRoomTest {
@@ -23,19 +26,34 @@ public class ChatRoomTest {
     private static final String USER_NAME = "user1";
     
     @Mock
+    private User user;
+    
+    @Mock
     private TwitterProfile profile;
+    
+    @Mock
+    private User admin;
     
 	@Mock
     private DirectMessage message;
     
-    @InjectMocks
-    private ChatRoom chatRoom = new ChatRoom("test");
+	private TwitterConnectionService service;
+	
+    private ChatRoom chatRoom;
     
+ 
     @Before
     public void setUp() {
     	MockitoAnnotations.initMocks(this);
+    	when(user.getLogin()).thenReturn("Janek");
+    	when(user.getConsumerKey()).thenReturn(consumerKey);
+    	when(user.getConsumerSecret()).thenReturn(consumerSecret);
+    	when(user.getConsumerAccessToken()).thenReturn(consumerAccessToken);
+    	when(user.getConsumerAccessSecret()).thenReturn(consumerAccessSecret);
+    	service = new TwitterConnectionService(user);
+    	chatRoom = new ChatRoom("Test room", service);   	
     }
-  
+    
     @Test
     public void testAddingNewParticipant() {   	
     	chatRoom.addParticipant(USER_NAME);   	
@@ -79,8 +97,24 @@ public class ChatRoomTest {
     	chatRoom.sendMessage(message);
     	
     	Assert.assertEquals(1, chatRoom.getMessages().size());
+    	
+    	chatRoom.clearMessages();
+    	
+    	Assert.assertEquals(0, chatRoom.getMessages().size());
     }
     
-    
+    @Test
+    public void testSynchronizingMessagesWithTwitter() {
+    	when(profile.getScreenName()).thenReturn(USER_NAME);
+    	when(message.getSender()).thenReturn(profile);
+    	when(message.getText()).thenReturn("My message");
+    	
+    	chatRoom.addParticipant(USER_NAME);
+    	chatRoom.sendMessage(message);
+    	Assert.assertEquals(1, chatRoom.getMessages().size());
+    	
+		chatRoom.synchronizeWithTwitter();
+    	Assert.assertEquals(21, chatRoom.getMessages().size());
+    }
     
 }
