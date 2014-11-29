@@ -84,37 +84,19 @@ public class ChatRoomTest {
     
     @Test
     public void testSendingMessage() {
-    	when(profile.getScreenName()).thenReturn(USER_NAME);
-    	when(message.getSender()).thenReturn(profile);
-    	when(message.getText()).thenReturn("My message");
-    	
     	chatRoom.addParticipant(USER_NAME);
-    	chatRoom.sendMessage(message);
+    	chatRoom.sendMessage(USER_NAME, MESSAGE_TEXT);
     	
     	Assert.assertEquals(1, chatRoom.getMessages().size());
     	
-    	chatRoom.removeParticipant(USER_NAME);
-    	chatRoom.sendMessage(message);
-    	
-    	Assert.assertEquals(1, chatRoom.getMessages().size());
-    	
-    	chatRoom.clearMessages();
-    	
-    	Assert.assertEquals(0, chatRoom.getMessages().size());
+
+		chatRoom.synchronizeWithTwitter();
+    	Assert.assertEquals(21, chatRoom.getMessages().size());
     }
     
     @Test
     public void testSynchronizingMessagesWithTwitter() {
-    	when(profile.getScreenName()).thenReturn(USER_NAME);
-    	when(message.getSender()).thenReturn(profile);
-    	when(message.getText()).thenReturn("My message");
-    	
-    	chatRoom.addParticipant(USER_NAME);
-    	chatRoom.sendMessage(message);
-    	Assert.assertEquals(1, chatRoom.getMessages().size());
-    	
-		chatRoom.synchronizeWithTwitter();
-    	Assert.assertEquals(21, chatRoom.getMessages().size());
+
     }
     
 }

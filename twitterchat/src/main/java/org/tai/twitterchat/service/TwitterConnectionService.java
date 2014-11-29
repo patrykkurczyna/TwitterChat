@@ -36,7 +36,7 @@ public class TwitterConnectionService {
 		LOGGER.info("Profile retrieved successfully");
 		return twitter.userOperations().getUserProfile();
 	}
-
+	
 	public CursoredList<TwitterProfile> getFriends() {
 		LOGGER.info("Friends retrieved successfully");
 		return twitter.friendOperations().getFriends();
@@ -50,7 +50,7 @@ public class TwitterConnectionService {
 	 */
 	public DirectMessage sendMessage(String username, String msg) {
 		if (user.getUserRole() == UserRole.OBSERVER) {
-			LOGGER.error("Cannot sending message: '" + "' to user: " + username + "! You do not have permissions to write");
+			LOGGER.error("Cannot send message: '" + "' to user: " + username + "! You do not have permissions to write");
 			return null;
 		} else {
 			LOGGER.info("Sending message: '" + "' to user: " + username);

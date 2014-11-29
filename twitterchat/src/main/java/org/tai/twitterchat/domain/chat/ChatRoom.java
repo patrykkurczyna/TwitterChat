@@ -13,11 +13,12 @@ import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.service.TwitterConnectionService;
 
 public class ChatRoom {
+	private final static String MSG_RECEIVER = "PKurczynaTAI";
 	private final String name;
 	private Set<String> participants;
 	private List<DirectMessage> messages;
 	private User admin;
-	
+
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
     
     private TwitterConnectionService service;
@@ -63,11 +64,11 @@ public class ChatRoom {
 	 * Method for sending message to the room
 	 * @param message {@link ChatMessage}
 	 */
-	public void sendMessage(DirectMessage message) {
-		String sender = message.getSender().getScreenName();
+	public void sendMessage(String sender, String message) {
 		if (participants.contains(sender)){
-			messages.add(message);
-			LOGGER.info("Room: " + name + " user: " + sender + " sends message: " + message.getText());
+			DirectMessage directMsg = service.sendMessage(MSG_RECEIVER, message);
+			messages.add(directMsg);
+			LOGGER.info("Room: " + name + " user: " + sender + " sends message: " + message);
 		} else {
 			LOGGER.warn("Room: " + name + " user: " + sender + " cannot send message to this room, you are not a member!");
 		}
