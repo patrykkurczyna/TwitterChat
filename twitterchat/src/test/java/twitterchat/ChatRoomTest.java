@@ -1,7 +1,5 @@
 package twitterchat;
 
-import static org.mockito.Mockito.when;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,8 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Mock;
+import static org.mockito.Mockito.*;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.tai.twitterchat.domain.chat.ChatRoom;
 import org.tai.twitterchat.domain.model.ChatMessage;
