@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="rememberMe" type="checkbox" value="true"> Remember Me
+                                        <input name="rememberMe" type="checkbox" value="true" checked="checked"> Remember Me
                                     </label>
                                 </div>
                                 <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">

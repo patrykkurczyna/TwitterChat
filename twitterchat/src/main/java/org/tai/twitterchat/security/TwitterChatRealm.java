@@ -12,9 +12,19 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.domain.model.UserRole;
 
+/**
+ * {@link=Realm} implementation using {@link=AuthorizingRealm}
+ * responsible for users authentication and authorization
+ *
+ */
 public class TwitterChatRealm extends AuthorizingRealm {
 	private User adminUser = new User("admin", "admin", UserRole.ADMIN);
 
+	
+	/**
+	 * authenticate user if his credentials are correct
+	 * @return user {@link=AuthenticationInfo} or null if authentication failed
+	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken authenticationToken) {
@@ -35,6 +45,11 @@ public class TwitterChatRealm extends AuthorizingRealm {
 		}
 	}
 
+	
+	/**
+	 * authorize user and grand his roles
+	 * @return user {@link=AuthorizationInfo}
+	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection pricipalCollection) {

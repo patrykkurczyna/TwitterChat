@@ -54,8 +54,6 @@
 	 <bean id="StaticRealm" class="org.tai.twitterchat.security.TwitterChatRealm"> 
 		</bean>
 
-	<bean id="credMatcher" class="org.tai.twitterchat.security.CredentialMatcher" />
-
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
 
 
