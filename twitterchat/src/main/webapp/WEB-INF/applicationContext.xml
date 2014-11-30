@@ -42,6 +42,7 @@
 	<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager">
 		<!--property name="cacheManager" ref="ehCacheManager" / -->
 	</bean>
+	
 	<!-- Define the Shiro Realm implementation you want to use to connect to 
 		your back-end -->
 	<!-- StaticRealm: -->
