@@ -12,7 +12,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.domain.model.UserRole;
 
-public class AdminRealm extends AuthorizingRealm {
+public class TwitterChatRealm extends AuthorizingRealm {
 	private User adminUser = new User("admin", "admin", UserRole.ADMIN);
 
 	@Override

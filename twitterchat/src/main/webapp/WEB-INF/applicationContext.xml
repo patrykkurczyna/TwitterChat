@@ -50,7 +50,7 @@
 		<property name="resourcePath" value="shiro.ini" />
 	</bean> -->
 
-	 <bean id="StaticRealm" class="org.tai.twitterchat.security.AdminRealm"> 
+	 <bean id="StaticRealm" class="org.tai.twitterchat.security.TwitterChatRealm"> 
 		</bean>
 
 	<bean id="credMatcher" class="org.tai.twitterchat.security.CredentialMatcher" />
