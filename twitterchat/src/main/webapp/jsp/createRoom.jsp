@@ -27,12 +27,15 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Room Name" name="roomName" type="text">
                                 </div>
-                                <input class="btn btn-primary btn-block" type="submit" value="Create room">
+                                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Create room">
                             </fieldset>
-                            <c:if test="${not empty username}" >
+                            <br>
+                            <c:if test="${roomCreated}" >
                                 	<div class="alert alert-success" role="alert">
-                                	<a href="#" class="alert-link">Success: room created!</a>
-                                	</div>
+									  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									  <span class="sr-only">Success: </span>
+									  Success: room created!
+									</div>
                             </c:if>
                         </form>
                     </div>

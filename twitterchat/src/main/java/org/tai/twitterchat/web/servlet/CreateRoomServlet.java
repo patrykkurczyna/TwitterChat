@@ -39,7 +39,7 @@ public class CreateRoomServlet extends HttpServlet {
     	
     	LOGGER.info("room created ! " + chatRoom.getName());
     	
-    	request.setAttribute("username", roomAdmin.getLogin());
+    	request.setAttribute("roomCreated", !roomName.equals(""));
         request.getRequestDispatcher("/jsp/createRoom.jsp").forward(request, response);
     }
     

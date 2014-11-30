@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="include.jsp"/>
 <!DOCTYPE html>
 <html>
@@ -34,6 +35,14 @@
                                     </label>
                                 </div>
                                 <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                                <br>
+                                <c:if test="${not empty error}" >
+                                	<div class="alert alert-danger" role="alert">
+									  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+									  <span class="sr-only">Error:</span>
+									  Invalid username or password
+									</div>
+                            	</c:if>
                             </fieldset>
                         </form>
                     </div>
