@@ -67,6 +67,24 @@
 		<servlet-name>homeServlet</servlet-name>
 		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
+		<servlet>
+		<servlet-name>chatServlet</servlet-name>
+		<servlet-class>org.tai.twitterchat.web.servlet.ChatServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>chatServlet</servlet-name>
+		<url-pattern>/chat</url-pattern>
+	</servlet-mapping>		
+	<servlet>
+		<servlet-name>createRoomServlet</servlet-name>
+		<servlet-class>org.tai.twitterchat.web.servlet.CreateRoomServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>createRoomServlet</servlet-name>
+		<url-pattern>/createRoom</url-pattern>
+	</servlet-mapping>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

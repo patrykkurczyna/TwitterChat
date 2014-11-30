@@ -27,6 +27,7 @@
 				/home/** = authc, roles[observer]
 				/login = authc
 				/rooms/** = authc, roles[admin]
+				/createRoom/** = authc, roles[observer]
 			</value>
 		</property>
 	</bean>

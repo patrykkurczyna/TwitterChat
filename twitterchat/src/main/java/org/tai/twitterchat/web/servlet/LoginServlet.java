@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -37,6 +36,7 @@ public class LoginServlet extends HttpServlet {
     	token.setRememberMe(true);
     	
     	Subject currentUser = SecurityUtils.getSubject();
+    	
     	
     	try {
     		currentUser.login(token);
