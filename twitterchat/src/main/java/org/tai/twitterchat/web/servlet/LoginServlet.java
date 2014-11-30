@@ -37,7 +37,6 @@ public class LoginServlet extends HttpServlet {
     	
     	Subject currentUser = SecurityUtils.getSubject();
     	
-    	
     	try {
     		currentUser.login(token);
     	} catch(Exception e) {

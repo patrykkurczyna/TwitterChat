@@ -7,13 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.social.twitter.api.CursoredList;
-import org.springframework.social.twitter.api.TwitterProfile;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.tai.twitterchat.domain.model.User;
-import org.tai.twitterchat.domain.model.UserRole;
-import org.tai.twitterchat.service.TwitterConnectionService;
 
 @Controller
 @RequestMapping("/")
@@ -23,6 +20,11 @@ public class ChatServlet extends HttpServlet {
 	
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
+    	Subject currentUser = SecurityUtils.getSubject();    	
+    	if (currentUser.hasRole("writer")) {
+        	request.setAttribute("authorizedToSend", true);
+    	}
+    	
         request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
     }
 }

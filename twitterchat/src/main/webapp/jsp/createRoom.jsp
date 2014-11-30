@@ -33,7 +33,7 @@
                                 	<div class="alert alert-success" role="alert">
                                 	<a href="#" class="alert-link">Success: room created!</a>
                                 	</div>
-                                </c:if>
+                            </c:if>
                         </form>
                     </div>
                 </div>
