@@ -27,4 +27,13 @@ public class ChatServlet extends HttpServlet {
     	
         request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	Subject currentUser = SecurityUtils.getSubject();    	
+    	if (currentUser.hasRole("writer")) {
+        	request.setAttribute("authorizedToSend", true);
+    	}
+        request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
+    }
 }

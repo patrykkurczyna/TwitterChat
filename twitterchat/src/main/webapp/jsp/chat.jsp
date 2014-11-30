@@ -66,13 +66,19 @@
                 </div>
                 <c:if test="${not empty authorizedToSend}" >                        
 	                <div class="panel-footer">
+	                <form name="sentMsg" action="" method="POST" accept-charset="UTF-8" role="form">
+                            <fieldset>
 	                    <div class="input-group">
+	                    
 	                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
 	                        <span class="input-group-btn">
-	                            <button class="btn btn-warning btn-sm" id="btn-chat">
+	                            <button class="btn btn-warning btn-sm" type="submit" id="btn-chat">
 	                                Send</button>
 	                        </span>
+	                         
 	                    </div>
+	                    </fieldset>
+                        </form>
 	                </div>
                 </c:if>
             </div>

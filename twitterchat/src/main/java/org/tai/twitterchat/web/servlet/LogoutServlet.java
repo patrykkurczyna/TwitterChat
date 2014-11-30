@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class LogoutServlet extends HttpServlet {
 	
+	/**
+	 * logout current user
+	 */
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
