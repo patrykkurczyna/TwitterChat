@@ -37,6 +37,13 @@
 									  Success: room created!
 									</div>
                             </c:if>
+                            <c:if test="${roomCreated == false}" >
+                                	<div class="alert alert-danger" role="alert">
+									  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+									  <span class="sr-only">Error: </span>
+									  Room name cannot be empty!
+									</div>
+                            </c:if>
                         </form>
                     </div>
                 </div>
