@@ -7,10 +7,10 @@ package org.tai.twitterchat.domain.model;
  */
 public class User {
 	//TODO this should not be hardcoded but different for every user
-	private final String consumerKey = "xXzWfyBVBhuUUTFF5Ykbachhr";
-	private final String consumerSecret = "SvV0s22vKJ1mF4AixAsGythTWCdr4PjwL8K20AgQSDqeOTEeeg";
-	private final String consumerAccessToken = "1197751716-ZWL0nIBKgRKiPK8MNJ9W1DLCBTTcsCl7ImsrqX7";
-	private final String consumerAccessSecret = "l2jBJdyrc2OwQIy22EJReJUwLSE1DjLa3JC2yKnN4VsYD";
+	private final String consumerKey = "XJebsejXnIZxSaG137uv9XPEx";
+	private final String consumerSecret = "s3FQc4Fsw05jp1CfN2DD9V1mGqG2utdzpuzIpFtsEovaVkgQHS";
+	private final String consumerAccessToken = "2898015615-bxWvZ4hWjdWTmxidM9ATQg5tU3R6Xe9ghsH3o32";
+	private final String consumerAccessSecret = "BTlUcLj260xL2nVBBxxI2BsfyITiBn3mc4ChnKJ93X6X6";
 	
 	private final String login;
 	private final String password;
