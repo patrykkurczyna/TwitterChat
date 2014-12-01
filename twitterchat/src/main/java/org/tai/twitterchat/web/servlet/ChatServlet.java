@@ -11,29 +11,53 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.tai.twitterchat.domain.chat.ChatRoom;
+import org.tai.twitterchat.domain.model.User;
+import org.tai.twitterchat.domain.model.UserRole;
 
 @Controller
 @RequestMapping("/")
 public class ChatServlet extends HttpServlet {
 	
+	private static ChatRoom chatRoom = null;
 	private static final long serialVersionUID = 9049787261928772648L;
+	private static final String FAKE_USER = "admin";
+	private static final String FAKE_PASS = "fake pass";
 	
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
-    	Subject currentUser = SecurityUtils.getSubject();    	
-    	if (currentUser.hasRole("writer")) {
-        	request.setAttribute("authorizedToSend", true);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+    	if (chatRoom != null) {
+	    	Subject currentUser = SecurityUtils.getSubject(); 
+	    	// if user has role writer we show him send button, otherwise it is not visible
+	    	if (currentUser.hasRole("writer")) {
+	        	request.setAttribute("authorizedToSend", true);
+	    	}
+    		request.setAttribute("roomName", chatRoom.getName());
+	        request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
+    	} else {
+    		request.getRequestDispatcher("/jsp/noChatRoom.jsp").forward(request, response);
     	}
-    	
-        request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
     }
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Subject currentUser = SecurityUtils.getSubject();    	
-    	if (currentUser.hasRole("writer")) {
-        	request.setAttribute("authorizedToSend", true);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 	
+    	// indicates whether or not this POST request is sent in order to create new chat room
+    	String roomCreated = response.getHeader("roomCreated");
+    	if (chatRoom != null) {
+    		Subject currentUser = SecurityUtils.getSubject();    	
+    		if (currentUser.hasRole("writer")) {
+    			request.setAttribute("authorizedToSend", true);
+    		}
+    		request.setAttribute("roomName", chatRoom.getName());
+    		request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);    		
+    	} else if (roomCreated == null){  //when chat room is not created and POST redirect is sent from login page
+    		request.getRequestDispatcher("/jsp/noChatRoom.jsp").forward(request, response);
+    	} else { //when chat room is not created but request from createRoom appeared and room needs to be created now
+    		// Chat room creation
+    		String roomName = response.getHeader("roomName");
+    		User roomAdmin = new User(FAKE_USER, FAKE_PASS, UserRole.ADMIN);   	
+    		chatRoom = new ChatRoom(roomName, roomAdmin);
+    		request.getRequestDispatcher("/chat").forward(request, response);
     	}
-        request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
     }
 }

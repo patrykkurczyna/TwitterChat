@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class LoginServlet extends HttpServlet {
+	private static final long serialVersionUID = 6125902842922207880L;
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(ProfilingFilter.class);
 
