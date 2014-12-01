@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		Subject currentUser = SecurityUtils.getSubject();
 		if (currentUser.isAuthenticated()) {
-    		request.getRequestDispatcher("/chat").forward(request, response);
+    		response.sendRedirect(this.getServletConfig().getServletContext().getContextPath() + "/chat");
     		return;
     	}
 		
