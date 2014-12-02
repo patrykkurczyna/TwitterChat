@@ -17,6 +17,8 @@ import org.springframework.social.twitter.api.impl.TwitterTemplate;
  *
  */
 public class TwitterConnectionService {
+	private static final int MSG_NUMBER = 5;
+
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(TwitterConnectionService.class);
 	
@@ -86,6 +88,6 @@ public class TwitterConnectionService {
 	}
 
 	public List<DirectMessage> getDirectMessages() {
-		return twitterReceiver.directMessageOperations().getDirectMessagesReceived(1, 7);
+		return twitterReceiver.directMessageOperations().getDirectMessagesReceived(1, MSG_NUMBER);
 	}
 }

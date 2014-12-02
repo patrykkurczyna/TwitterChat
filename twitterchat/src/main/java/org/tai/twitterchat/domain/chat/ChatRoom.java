@@ -19,6 +19,7 @@ import org.tai.twitterchat.service.TwitterConnectionService;
  */
 public class ChatRoom {
 	private final static String MSG_RECEIVER = "AdmiinTAI";
+	private final static Integer MSG_BUFFER = 7;
 	private final String name;
 	private Set<String> participants;
 	private List<DirectMessage> messages;
@@ -56,6 +57,9 @@ public class ChatRoom {
 			if (!messageAlreadyExists(msg)) {
 				LOGGER.info("There is a new message from twitter! Adding to chat: " + msg.getText() + " from " + msg.getSender().getName());
 				messages.add(msg);
+				if (messages.size() > MSG_BUFFER) {
+					messages.remove(0);
+				}
 			}
 		}
 	}
