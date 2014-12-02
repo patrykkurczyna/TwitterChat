@@ -29,11 +29,13 @@ public class ChatServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user = SecurityUtils.getSubject().getPrincipal().toString();
 		String pass = FAKE_PASS;
+		// Create room sender and room admin
 		if (user != null && pass != null) {
 			sender = new User(user, pass, UserRole.WRITER);   	
 			admin = new User("admin", pass, UserRole.ADMIN);   	
 		}
-
+		
+		// If chat is created
     	if (chatRoom != null) {
     		chatRoom.synchronizeWithTwitter();
 
@@ -57,11 +59,12 @@ public class ChatServlet extends HttpServlet {
     	String roomCreated = response.getHeader("roomCreated");
 		String msg = request.getParameter("msg");
     	if (roomCreated != null) {
-    		// Chat room creation
+    		// Chat room creation 
     		String roomName = response.getHeader("roomName");  	
     		chatRoom = new ChatRoom(roomName, admin, sender);
     		response.sendRedirect(this.getServletConfig().getServletContext().getContextPath() + "/chat");     		
     	} else if (!msg.equals("")) { 
+    		// Sending message - we need to set new sender in the room
     		String user = SecurityUtils.getSubject().getPrincipal().toString();
     		String pass = FAKE_PASS;
 			sender = new User(user, pass, UserRole.WRITER);   

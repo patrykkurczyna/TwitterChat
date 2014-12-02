@@ -12,6 +12,11 @@ import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.domain.model.UserRole;
 import org.tai.twitterchat.service.TwitterConnectionService;
 
+/**
+ * Class representing chat room
+ * @author patrykkurczyna
+ *
+ */
 public class ChatRoom {
 	private final static String MSG_RECEIVER = "AdmiinTAI";
 	private final String name;
@@ -20,6 +25,9 @@ public class ChatRoom {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
     
+    /**
+     * Service for perform twitter API operations
+     */
     private TwitterConnectionService service;
 	
     public ChatRoom(String name) {
@@ -28,12 +36,21 @@ public class ChatRoom {
 		this.name = name;
     }
     
+    /**
+     * 
+     * @param name chat room name
+     * @param admin user to whom messages are sent via twitter and from whom they are retrieved to populate chat
+     * @param sender user who is actual sender of a message
+     */
 	public ChatRoom(String name, User admin, User sender) {
 		this(name);
 		addParticipant(sender.getLogin());
 		this.service = sender.getService();
 	}
 	
+	/**
+	 * Method for retrieve messages from twitter and populate our chat
+	 */
 	public void synchronizeWithTwitter() {
 		for (DirectMessage msg : service.getDirectMessages()){
 			if (!messageAlreadyExists(msg)) {
@@ -43,6 +60,11 @@ public class ChatRoom {
 		}
 	}
 	
+	/**
+	 * Returns true when message is already in our chat
+	 * @param msg message for check
+	 * @return
+	 */
 	private boolean messageAlreadyExists(DirectMessage msg) {
 		for (DirectMessage message : messages) {
 			if (message.getId() == msg.getId()) {
@@ -52,12 +74,21 @@ public class ChatRoom {
 		return false;
 	}
 	
+	/**
+	 * Adding participant name to the list
+	 * @param participant
+	 */
 	public void addParticipant(String participant) {
 		if (participants.add(participant)) {
 			LOGGER.info("Room " + name + ": participant: " + participant + " enters!");
 		};
 	}
 	
+	/**
+	 * Removing participant
+	 * @param user
+	 * @return
+	 */
 	public boolean removeParticipant(String user) {
 		LOGGER.info("Room " + name + ": participant: " + user + " leaves!");
 		return participants.remove(user);
@@ -69,6 +100,7 @@ public class ChatRoom {
 	 */
 	public void sendMessage(User sender, String message) {
 		if (participants.contains(sender.getLogin()) && !(sender.getUserRole() == UserRole.READER)){
+			// set service to send messages from new sender
 			service = sender.getService();
 			DirectMessage directMsg = service.sendMessage(MSG_RECEIVER, message);
 			messages.add(directMsg);
