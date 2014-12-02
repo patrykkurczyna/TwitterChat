@@ -1,9 +1,9 @@
 package org.tai.twitterchat.domain.chat;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class ChatRoom {
 	private final static Integer MSG_BUFFER = 7;
 	private final String name;
 	private Set<String> participants;
-	private List<DirectMessage> messages;
+	private TreeSet<DirectMessage> messages;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
     
@@ -32,7 +32,7 @@ public class ChatRoom {
     private TwitterConnectionService service;
 	
     public ChatRoom(String name) {
-		this.messages = new ArrayList<DirectMessage>();
+		this.messages = new TreeSet<DirectMessage>(new DirectMessageComparator());
 		this.participants = new HashSet<String>();
 		this.name = name;
     }
@@ -58,7 +58,7 @@ public class ChatRoom {
 				LOGGER.info("There is a new message from twitter! Adding to chat: " + msg.getText() + " from " + msg.getSender().getName());
 				messages.add(msg);
 				if (messages.size() > MSG_BUFFER) {
-					messages.remove(0);
+					messages.remove(messages.first());
 				}
 			}
 		}
@@ -108,6 +108,9 @@ public class ChatRoom {
 			service = sender.getService();
 			DirectMessage directMsg = service.sendMessage(MSG_RECEIVER, message);
 			messages.add(directMsg);
+			if (messages.size() > MSG_BUFFER) {
+				messages.remove(messages.first());
+			}
 			LOGGER.info("Room: " + name + " user: " + sender + " sends message: " + message);
 		} else {
 			LOGGER.warn("Room: " + name + " user: " + sender + " cannot send message to this room, you are not a member!");
@@ -134,12 +137,26 @@ public class ChatRoom {
 		this.participants = participants;
 	}
 
-	public List<DirectMessage> getMessages() {
+	public Set<DirectMessage> getMessages() {
 		return messages;
 	}
 
-	public void setMessages(List<DirectMessage> messages) {
+	public void setMessages(TreeSet<DirectMessage> messages) {
 		this.messages = messages;
+	}
+		
+	/**
+	 * Custom comparator for DirectMessage which compares creation date
+	 * @author patrykkurczyna
+	 *
+	 */
+	private class DirectMessageComparator implements Comparator<DirectMessage>{	
+		@Override
+		public int compare(DirectMessage d1, DirectMessage d2) {
+		        if(d1.getCreatedAt().getTime() > d2.getCreatedAt().getTime()) return 1;
+		        else if(d1.getCreatedAt().getTime() < d2.getCreatedAt().getTime()) return -1;
+		        else return 0;
+		}
 	}
 	
 	
