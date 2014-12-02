@@ -40,9 +40,8 @@ body {
 						</div>
 					</div>
 					<div class="panel-body">
-							<c:set var="i" scope="session" value="${0}" />
 							<c:forEach items="${messages}" var="message">
-								<c:if test="${i % 2 == 0}">
+								<c:if test="${message.sender.name == 'Admiin TAI'}">
 									<span class="chat-img pull-left">
 											<img src="${message.sender.profileImageUrl}"
 											alt="User Avatar" class="img-circle">
@@ -56,7 +55,7 @@ body {
 											<p> ${message.text}</p>
 										</div>
 								</c:if>
-								<c:if test="${i % 2 == 1}">
+								<c:if test="${message.sender.name == 'Writer TAI'}">
 									<span
 										class="chat-img pull-right"> <img
 											src="${message.sender.profileImageUrl}" alt="User Avatar"
@@ -73,7 +72,6 @@ body {
 										</div>
 								</c:if>
 								<br>
-								<c:set var="i" scope="session" value="${i + 1}" />
 							</c:forEach>
 					</div>
 					<c:if test="${not empty authorizedToSend}">
