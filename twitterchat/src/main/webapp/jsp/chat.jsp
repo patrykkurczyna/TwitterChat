@@ -60,15 +60,15 @@ body {
 								<c:if test="${i % 2 == 1}">
 									<li class="right clearfix"><span
 										class="chat-img pull-right"> <img
-											src="${message.sender.profileImageUrl}"
-											alt="User Avatar" class="img-circle">
+											src="${message.sender.profileImageUrl}" alt="User Avatar"
+											class="img-circle">
 									</span>
 										<div class="chat-body clearfix">
 											<div class="header">
-												<small class=" text-muted"> <span class="glyphicon glyphicon-time"></span>${message.createdAt}</small>
-												<strong
-													class="pull-right primary-font">${message.sender.name}</strong>
-													
+												<small class=" text-muted"> <span
+													class="glyphicon glyphicon-time"></span>${message.createdAt}</small>
+												<strong class="pull-right primary-font">${message.sender.name}</strong>
+
 											</div>
 											<p>${message.text}</p>
 										</div></li>

@@ -82,17 +82,17 @@ public class ChatRoomTest {
     	Assert.assertEquals(false, chatRoom.getParticipants().contains(USER_NAME));
     }
     
-    @Test
-    public void testSendingMessage() {
-    	chatRoom.addParticipant(USER_NAME);
-    	chatRoom.sendMessage(USER_NAME, MESSAGE_TEXT);
-    	
-    	Assert.assertEquals(1, chatRoom.getMessages().size());
-    	
-
-		chatRoom.synchronizeWithTwitter();
-    	Assert.assertEquals(21, chatRoom.getMessages().size());
-    }
+//    @Test
+//    public void testSendingMessage() {
+//    	chatRoom.addParticipant(USER_NAME);
+//    	chatRoom.sendMessage(USER_NAME, MESSAGE_TEXT);
+//    	
+//    	Assert.assertEquals(1, chatRoom.getMessages().size());
+//    	
+//
+//		chatRoom.synchronizeWithTwitter();
+//    	Assert.assertEquals(21, chatRoom.getMessages().size());
+//    }
     
     @Test
     public void testSynchronizingMessagesWithTwitter() {

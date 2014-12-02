@@ -8,7 +8,6 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.social.twitter.api.DirectMessage;
-import org.tai.twitterchat.domain.model.ChatMessage;
 import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.service.TwitterConnectionService;
 
@@ -42,11 +41,20 @@ public class ChatRoom {
 	
 	public void synchronizeWithTwitter() {
 		for (DirectMessage msg : service.getDirectMessages()){
-			if (!messages.contains(msg)) {
+			if (!messageAlreadyExists(msg)) {
 				LOGGER.info("There is a new message from twitter! Adding to chat: " + msg.getText() + " from " + msg.getSender().getName());
 				messages.add(msg);
 			}
 		}
+	}
+	
+	private boolean messageAlreadyExists(DirectMessage msg) {
+		for (DirectMessage message : messages) {
+			if (message.getId() == msg.getId()) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public void addParticipant(String participant) {

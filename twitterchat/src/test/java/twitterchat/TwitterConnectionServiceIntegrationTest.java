@@ -43,7 +43,7 @@ public class TwitterConnectionServiceIntegrationTest {
     	}
     	
     	Assert.assertTrue(friendFound);
-    	Assert.assertEquals(20, friends.size());
+    	Assert.assertEquals(1, friends.size());
     }
     
     @Test
