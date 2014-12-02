@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.social.twitter.api.DirectMessage;
 import org.tai.twitterchat.domain.model.User;
+import org.tai.twitterchat.domain.model.UserRole;
 import org.tai.twitterchat.service.TwitterConnectionService;
 
 public class ChatRoom {
@@ -16,8 +17,6 @@ public class ChatRoom {
 	private final String name;
 	private Set<String> participants;
 	private List<DirectMessage> messages;
-	private User admin;
-	private User sender;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
     
@@ -31,14 +30,8 @@ public class ChatRoom {
     
 	public ChatRoom(String name, User admin, User sender) {
 		this(name);
-		this.admin = admin;
-		this.sender = sender;
-		this.service = new TwitterConnectionService(admin, sender);
-	}
-	
-	public ChatRoom(String name, TwitterConnectionService service) {
-		this(name);
-		this.service = service;
+		addParticipant(sender.getLogin());
+		this.service = sender.getService();
 	}
 	
 	public void synchronizeWithTwitter() {
@@ -74,8 +67,8 @@ public class ChatRoom {
 	 * Method for sending message to the room
 	 * @param message {@link ChatMessage}
 	 */
-	public void sendMessage(String sender, String message) {
-		if (participants.contains(sender)){
+	public void sendMessage(User sender, String message) {
+		if (participants.contains(sender.getLogin()) && !(sender.getUserRole() == UserRole.OBSERVER)){
 			DirectMessage directMsg = service.sendMessage(MSG_RECEIVER, message);
 			messages.add(directMsg);
 			LOGGER.info("Room: " + name + " user: " + sender + " sends message: " + message);
@@ -83,8 +76,7 @@ public class ChatRoom {
 			LOGGER.warn("Room: " + name + " user: " + sender + " cannot send message to this room, you are not a member!");
 		}
 	}
-	
-	
+		
 	/**
 	 * Method for clearing all messages in room
 	 */

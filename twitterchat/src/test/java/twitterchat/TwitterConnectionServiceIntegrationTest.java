@@ -1,9 +1,12 @@
 package twitterchat;
 
 import static org.mockito.Mockito.when;
+import static twitterchat.TestProperties.FRIEND_NAME;
+import static twitterchat.TestProperties.TWITTER_NAME;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -11,8 +14,8 @@ import org.springframework.social.twitter.api.CursoredList;
 import org.springframework.social.twitter.api.TwitterProfile;
 import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.service.TwitterConnectionService;
-import static twitterchat.TestProperties.*;
 
+@Ignore
 public class TwitterConnectionServiceIntegrationTest {
 	
 	@Mock
@@ -25,11 +28,11 @@ public class TwitterConnectionServiceIntegrationTest {
     public void setUp() {
     	MockitoAnnotations.initMocks(this);
     	when(user.getLogin()).thenReturn("Janek");
-    	when(user.getConsumerKey()).thenReturn(consumerKey);
-    	when(user.getConsumerSecret()).thenReturn(consumerSecret);
-    	when(user.getConsumerAccessToken()).thenReturn(consumerAccessToken);
-    	when(user.getConsumerAccessSecret()).thenReturn(consumerAccessSecret);
-    	service = new TwitterConnectionService(user, user);
+//    	when(user.getConsumerKey()).thenReturn(consumerKey);
+//    	when(user.getConsumerSecret()).thenReturn(consumerSecret);
+//    	when(user.getConsumerAccessToken()).thenReturn(consumerAccessToken);
+//    	when(user.getConsumerAccessSecret()).thenReturn(consumerAccessSecret);
+//    	service = new TwitterConnectionService(user, user);
     }
   
     @Test

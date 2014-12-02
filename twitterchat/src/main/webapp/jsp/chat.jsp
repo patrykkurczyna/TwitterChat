@@ -82,15 +82,13 @@ body {
 								accept-charset="UTF-8" role="form">
 								<fieldset>
 									<div class="input-group">
-
-										<input id="btn-input" type="text"
+										<input id="btn-input" type="text" name="msg"
 											class="form-control input-sm"
 											placeholder="Type your message here..."> <span
 											class="input-group-btn">
 											<button class="btn btn-warning btn-sm" type="submit"
 												id="btn-chat">Send</button>
 										</span>
-
 									</div>
 								</fieldset>
 							</form>

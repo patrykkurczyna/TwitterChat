@@ -9,8 +9,6 @@ import org.springframework.social.twitter.api.DirectMessage;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
-import org.tai.twitterchat.domain.model.User;
-import org.tai.twitterchat.domain.model.UserRole;
 
 /**
  * This service is used to connect with twitter API and perform operations
@@ -21,21 +19,44 @@ import org.tai.twitterchat.domain.model.UserRole;
 public class TwitterConnectionService {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(TwitterConnectionService.class);
-
-	private Twitter twitterReceiver;
+	
+	private final String adminConsumerKey = "XJebsejXnIZxSaG137uv9XPEx";
+	private final String adminConsumerSecret = "s3FQc4Fsw05jp1CfN2DD9V1mGqG2utdzpuzIpFtsEovaVkgQHS";
+	private final String adminConsumerAccessToken = "2898015615-bxWvZ4hWjdWTmxidM9ATQg5tU3R6Xe9ghsH3o32";
+	private final String adminConsumerAccessSecret = "BTlUcLj260xL2nVBBxxI2BsfyITiBn3mc4ChnKJ93X6X6";
+	
+	private final String writerConsumerKey = "xXzWfyBVBhuUUTFF5Ykbachhr";
+	private final String writerConsumerSecret = "SvV0s22vKJ1mF4AixAsGythTWCdr4PjwL8K20AgQSDqeOTEeeg";
+	private final String writerConsumerAccessToken = "1197751716-ZWL0nIBKgRKiPK8MNJ9W1DLCBTTcsCl7ImsrqX7";
+	private final String writerConsumerAccessSecret = "l2jBJdyrc2OwQIy22EJReJUwLSE1DjLa3JC2yKnN4VsYD";
+	
+	private final String readerConsumerKey = "XJebsejXnIZxSaG137uv9XPEx";
+	private final String readerConsumerSecret = "s3FQc4Fsw05jp1CfN2DD9V1mGqG2utdzpuzIpFtsEovaVkgQHS";
+	private final String readerConsumerAccessToken = "2898015615-bxWvZ4hWjdWTmxidM9ATQg5tU3R6Xe9ghsH3o32";
+	private final String readerConsumerAccessSecret = "BTlUcLj260xL2nVBBxxI2BsfyITiBn3mc4ChnKJ93X6X6";
+	
 	private Twitter twitterSender;
-	private User receiver;
-	private User sender;
-
-	public TwitterConnectionService(User receiver, User sender) {
-		this.receiver = receiver;
-		this.sender = sender;
-		this.twitterReceiver = new TwitterTemplate(receiver.getConsumerKey(),
-				receiver.getConsumerSecret(), receiver.getConsumerAccessToken(),
-				receiver.getConsumerAccessSecret());
-		this.twitterSender = new TwitterTemplate(sender.getConsumerKey(),
-				sender.getConsumerSecret(), sender.getConsumerAccessToken(),
-				sender.getConsumerAccessSecret());
+	private final Twitter twitterReceiver = new TwitterTemplate(adminConsumerKey, adminConsumerSecret, adminConsumerAccessToken, adminConsumerAccessSecret);;
+	
+	private void createConnection(String consumerKey, String consumerSecret,
+			String consumerAccessToken, String consumerAccessSecret) {
+		this.twitterSender = new TwitterTemplate(consumerKey, consumerSecret, consumerAccessToken, consumerAccessSecret);
+	}
+	
+	public TwitterConnectionService(String user) {
+		switch (user) {
+		case "admin":
+			createConnection(adminConsumerKey, adminConsumerSecret, adminConsumerAccessToken, adminConsumerAccessSecret);
+			break;
+		case "writer":
+			createConnection(writerConsumerKey, writerConsumerSecret, writerConsumerAccessToken, writerConsumerAccessSecret);
+			break;
+		case "reader":
+			createConnection(readerConsumerKey, readerConsumerSecret, readerConsumerAccessToken, readerConsumerAccessSecret);
+			break;
+		default:
+			break;
+		}
 	}
 
 	public TwitterProfile getProfile() {
@@ -55,13 +76,8 @@ public class TwitterConnectionService {
 	 * @param msg Message text
 	 */
 	public DirectMessage sendMessage(String username, String msg) {
-		if (sender.getUserRole() == UserRole.OBSERVER) {
-			LOGGER.error("Cannot send message: '" + "' to user: " + username + "! You do not have permissions to write");
-			return null;
-		} else {
-			LOGGER.info("Sending message: '" + "' to user: " + username);
-			return twitterSender.directMessageOperations().sendDirectMessage(username, msg);			
-		}
+		LOGGER.info("Sending message: '" + "' to user: " + username);
+		return twitterSender.directMessageOperations().sendDirectMessage(username, msg);			
 	}
 
 	public List<DirectMessage> getDirectMessages() {
