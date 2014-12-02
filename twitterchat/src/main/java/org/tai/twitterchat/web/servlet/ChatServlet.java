@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.tai.twitterchat.domain.chat.ChatRoom;
 import org.tai.twitterchat.domain.model.User;
-import org.tai.twitterchat.domain.model.UserRole;
 
 @Controller
 @RequestMapping("/")
@@ -21,13 +20,23 @@ public class ChatServlet extends HttpServlet {
 	
 	private static ChatRoom chatRoom = null;
 	private static final long serialVersionUID = 9049787261928772648L;
-	private static final String FAKE_USER = "admin";
-	private static final String FAKE_PASS = "fake pass";
+	private static final String FAKE_PASS = "pass";
+	private static User sender; 
+	private static User admin;
+	
 	
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = SecurityUtils.getSubject().getPrincipal().toString();
+		String pass = FAKE_PASS;
+		if (user != null && pass != null) {
+			sender = new User(user, pass);   	
+			admin = new User("admin", pass);   	
+		}
+
     	if (chatRoom != null) {
     		chatRoom.synchronizeWithTwitter();
+
 	    	Subject currentUser = SecurityUtils.getSubject(); 
 	    	// if user has role writer we show him send button, otherwise it is not visible
 	    	if (currentUser.hasRole("writer")) {
@@ -35,6 +44,7 @@ public class ChatServlet extends HttpServlet {
 	    	}
     		request.setAttribute("roomName", chatRoom.getName());
     		request.setAttribute("messages", chatRoom.getMessages());
+    		request.setAttribute("user", sender);
 	        request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
     	} else {
     		request.getRequestDispatcher("/jsp/noChatRoom.jsp").forward(request, response);
@@ -47,9 +57,8 @@ public class ChatServlet extends HttpServlet {
     	String roomCreated = response.getHeader("roomCreated");
     	if (roomCreated != null) {
     		// Chat room creation
-    		String roomName = response.getHeader("roomName");
-    		User roomAdmin = new User(FAKE_USER, FAKE_PASS, UserRole.ADMIN);   	
-    		chatRoom = new ChatRoom(roomName, roomAdmin);
+    		String roomName = response.getHeader("roomName");  	
+    		chatRoom = new ChatRoom(roomName, admin, sender);
     		response.sendRedirect(this.getServletConfig().getServletContext().getContextPath() + "/chat");     		
     	} else {  //when roomCreated header is null so POST redirect is sent not in order to create room
     		request.getRequestDispatcher("/jsp/noChatRoom.jsp").forward(request, response);

@@ -22,24 +22,30 @@ public class TwitterConnectionService {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(TwitterConnectionService.class);
 
-	private Twitter twitter;
-	private User user;
+	private Twitter twitterReceiver;
+	private Twitter twitterSender;
+	private User receiver;
+	private User sender;
 
-	public TwitterConnectionService(User user) {
-		this.user = user;
-		this.twitter = new TwitterTemplate(user.getConsumerKey(),
-				user.getConsumerSecret(), user.getConsumerAccessToken(),
-				user.getConsumerAccessSecret());
+	public TwitterConnectionService(User receiver, User sender) {
+		this.receiver = receiver;
+		this.sender = sender;
+		this.twitterReceiver = new TwitterTemplate(receiver.getConsumerKey(),
+				receiver.getConsumerSecret(), receiver.getConsumerAccessToken(),
+				receiver.getConsumerAccessSecret());
+		this.twitterSender = new TwitterTemplate(sender.getConsumerKey(),
+				sender.getConsumerSecret(), sender.getConsumerAccessToken(),
+				sender.getConsumerAccessSecret());
 	}
 
 	public TwitterProfile getProfile() {
 		LOGGER.info("Profile retrieved successfully");
-		return twitter.userOperations().getUserProfile();
+		return twitterReceiver.userOperations().getUserProfile();
 	}
 	
 	public CursoredList<TwitterProfile> getFriends() {
 		LOGGER.info("Friends retrieved successfully");
-		return twitter.friendOperations().getFriends();
+		return twitterReceiver.friendOperations().getFriends();
 	}
 	
 	/**
@@ -49,16 +55,16 @@ public class TwitterConnectionService {
 	 * @param msg Message text
 	 */
 	public DirectMessage sendMessage(String username, String msg) {
-		if (user.getUserRole() == UserRole.OBSERVER) {
+		if (sender.getUserRole() == UserRole.OBSERVER) {
 			LOGGER.error("Cannot send message: '" + "' to user: " + username + "! You do not have permissions to write");
 			return null;
 		} else {
 			LOGGER.info("Sending message: '" + "' to user: " + username);
-			return twitter.directMessageOperations().sendDirectMessage(username, msg);			
+			return twitterSender.directMessageOperations().sendDirectMessage(username, msg);			
 		}
 	}
 
 	public List<DirectMessage> getDirectMessages() {
-		return twitter.directMessageOperations().getDirectMessagesReceived(1, 7);
+		return twitterReceiver.directMessageOperations().getDirectMessagesReceived(1, 7);
 	}
 }

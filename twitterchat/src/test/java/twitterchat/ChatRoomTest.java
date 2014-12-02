@@ -53,7 +53,7 @@ public class ChatRoomTest {
     	when(user.getConsumerSecret()).thenReturn(consumerSecret);
     	when(user.getConsumerAccessToken()).thenReturn(consumerAccessToken);
     	when(user.getConsumerAccessSecret()).thenReturn(consumerAccessSecret);
-    	service = new TwitterConnectionService(user);
+    	service = new TwitterConnectionService(user, user);
     	chatRoom = new ChatRoom("Test room", service);   	
     }
     

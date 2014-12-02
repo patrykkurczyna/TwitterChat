@@ -22,8 +22,8 @@ body {
 			<div class="col-md-4">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<span class="glyphicon glyphicon-comment"></span> Chat -
-						${roomName}
+						<span class="glyphicon glyphicon-comment"></span> Chat:
+						${roomName}    Welcome ${user.login}!
 						<div class="btn-group pull-right">
 							<button type="button"
 								class="btn btn-default btn-xs dropdown-toggle"

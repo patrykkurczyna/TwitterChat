@@ -17,6 +17,7 @@ public class ChatRoom {
 	private Set<String> participants;
 	private List<DirectMessage> messages;
 	private User admin;
+	private User sender;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatRoom.class);
     
@@ -28,10 +29,11 @@ public class ChatRoom {
 		this.name = name;
     }
     
-	public ChatRoom(String name, User admin) {
+	public ChatRoom(String name, User admin, User sender) {
 		this(name);
 		this.admin = admin;
-		this.service = new TwitterConnectionService(admin);
+		this.sender = sender;
+		this.service = new TwitterConnectionService(admin, sender);
 	}
 	
 	public ChatRoom(String name, TwitterConnectionService service) {

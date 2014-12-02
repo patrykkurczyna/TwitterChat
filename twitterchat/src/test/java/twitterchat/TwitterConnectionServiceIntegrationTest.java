@@ -29,7 +29,7 @@ public class TwitterConnectionServiceIntegrationTest {
     	when(user.getConsumerSecret()).thenReturn(consumerSecret);
     	when(user.getConsumerAccessToken()).thenReturn(consumerAccessToken);
     	when(user.getConsumerAccessSecret()).thenReturn(consumerAccessSecret);
-    	service = new TwitterConnectionService(user);
+    	service = new TwitterConnectionService(user, user);
     }
   
     @Test

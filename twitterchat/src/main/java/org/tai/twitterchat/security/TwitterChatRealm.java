@@ -18,9 +18,7 @@ import org.tai.twitterchat.domain.model.UserRole;
  *
  */
 public class TwitterChatRealm extends AuthorizingRealm {
-	private User adminUser = new User("admin", "admin", UserRole.ADMIN);
 
-	
 	/**
 	 * authenticate user if his credentials are correct
 	 * @return user {@link=AuthenticationInfo} or null if authentication failed

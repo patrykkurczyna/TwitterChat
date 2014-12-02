@@ -39,16 +39,16 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Subject currentUser = SecurityUtils.getSubject();
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
 		if (currentUser.isAuthenticated()) {
+			response.addHeader("username", username);
+			response.addHeader("password", password);
     		response.sendRedirect(this.getServletConfig().getServletContext().getContextPath() + "/chat");
     		return;
     	}
 		
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-
-		LOGGER.info("username " + username + " password " + password);
-
 		UsernamePasswordToken token = new UsernamePasswordToken(username,
 				password);
 		token.setRememberMe(true);
