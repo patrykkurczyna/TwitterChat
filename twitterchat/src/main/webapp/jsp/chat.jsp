@@ -19,7 +19,7 @@ body {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5">
+			<div class="col-md-4">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<span class="glyphicon glyphicon-comment"></span> Chat -
@@ -40,11 +40,10 @@ body {
 						</div>
 					</div>
 					<div class="panel-body">
-						<ul class="chat">
 							<c:set var="i" scope="session" value="${0}" />
 							<c:forEach items="${messages}" var="message">
 								<c:if test="${i % 2 == 0}">
-									<li class="left clearfix"><span class="chat-img pull-left">
+									<span class="chat-img pull-left">
 											<img src="${message.sender.profileImageUrl}"
 											alt="User Avatar" class="img-circle">
 									</span>
@@ -55,10 +54,10 @@ body {
 													class="glyphicon glyphicon-time"></span>${message.createdAt}</small>
 											</div>
 											<p> ${message.text}</p>
-										</div></li>
+										</div>
 								</c:if>
 								<c:if test="${i % 2 == 1}">
-									<li class="right clearfix"><span
+									<span
 										class="chat-img pull-right"> <img
 											src="${message.sender.profileImageUrl}" alt="User Avatar"
 											class="img-circle">
@@ -71,12 +70,11 @@ body {
 
 											</div>
 											<p>${message.text}</p>
-										</div></li>
+										</div>
 								</c:if>
 								<br>
 								<c:set var="i" scope="session" value="${i + 1}" />
 							</c:forEach>
-						</ul>
 					</div>
 					<c:if test="${not empty authorizedToSend}">
 						<div class="panel-footer">

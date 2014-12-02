@@ -12,7 +12,7 @@ import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.service.TwitterConnectionService;
 
 public class ChatRoom {
-	private final static String MSG_RECEIVER = "PKurczynaTAI";
+	private final static String MSG_RECEIVER = "AdmiinTAI";
 	private final String name;
 	private Set<String> participants;
 	private List<DirectMessage> messages;
@@ -81,6 +81,7 @@ public class ChatRoom {
 			LOGGER.warn("Room: " + name + " user: " + sender + " cannot send message to this room, you are not a member!");
 		}
 	}
+	
 	
 	/**
 	 * Method for clearing all messages in room

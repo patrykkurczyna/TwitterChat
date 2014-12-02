@@ -1,7 +1,11 @@
 package twitterchat;
 
 import static org.mockito.Mockito.when;
-import static twitterchat.TestProperties.*;
+import static twitterchat.TestProperties.consumerAccessSecret;
+import static twitterchat.TestProperties.consumerAccessToken;
+import static twitterchat.TestProperties.consumerKey;
+import static twitterchat.TestProperties.consumerSecret;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +13,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;

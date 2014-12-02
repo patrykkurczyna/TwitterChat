@@ -59,6 +59,6 @@ public class TwitterConnectionService {
 	}
 
 	public List<DirectMessage> getDirectMessages() {
-		return twitter.directMessageOperations().getDirectMessagesReceived(1, 1);
+		return twitter.directMessageOperations().getDirectMessagesReceived(1, 7);
 	}
 }
