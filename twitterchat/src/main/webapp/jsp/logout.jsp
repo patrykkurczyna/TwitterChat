@@ -7,6 +7,7 @@
     <!-- Add some nice styling and functionality.  We'll just use Twitter Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
     <h1>Logged out</h1>

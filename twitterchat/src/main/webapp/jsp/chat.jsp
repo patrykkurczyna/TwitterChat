@@ -3,13 +3,16 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <html>
-<title>Twitter chat : Login</title>
+<title>Twitter Chat</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Add some nice styling and functionality.  We'll just use Twitter Bootstrap -->
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+	<link rel="stylesheet"
+	href="../resources/stylesheet/chat.css">
+<link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <style>
 body {
 	padding-top: 20px;
@@ -22,8 +25,10 @@ body {
 			<div class="col-md-4">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+						<img src="${userImageUrl}"
+											alt="User Avatar" class="img-circle">
 						<span class="glyphicon glyphicon-comment"></span> Chat:
-						${roomName}    Welcome ${user.login}!
+						${roomName}  -  Welcome ${user.login}!
 						<div class="btn-group pull-right">
 							<button type="button"
 								class="btn btn-default btn-xs dropdown-toggle"

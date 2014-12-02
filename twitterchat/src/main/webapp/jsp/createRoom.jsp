@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Twitter chat : Login</title>
+    <title>Twitter chat - create room</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Add some nice styling and functionality.  We'll just use Twitter Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <style>
         body{padding-top:20px;}
     </style>

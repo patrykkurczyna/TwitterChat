@@ -47,6 +47,7 @@ public class ChatServlet extends HttpServlet {
     		request.setAttribute("roomName", chatRoom.getName());
     		request.setAttribute("messages", chatRoom.getMessages());
     		request.setAttribute("user", sender);
+    		request.setAttribute("userImageUrl", sender.getService().getSenderProfile().getProfileImageUrl());
 	        request.getRequestDispatcher("/jsp/chat.jsp").forward(request, response);
     	} else {
     		request.getRequestDispatcher("/jsp/noChatRoom.jsp").forward(request, response);

@@ -30,10 +30,10 @@ public class TwitterConnectionService {
 	private final String writerConsumerAccessToken = "1197751716-ZWL0nIBKgRKiPK8MNJ9W1DLCBTTcsCl7ImsrqX7";
 	private final String writerConsumerAccessSecret = "l2jBJdyrc2OwQIy22EJReJUwLSE1DjLa3JC2yKnN4VsYD";
 	
-	private final String readerConsumerKey = "XJebsejXnIZxSaG137uv9XPEx";
-	private final String readerConsumerSecret = "s3FQc4Fsw05jp1CfN2DD9V1mGqG2utdzpuzIpFtsEovaVkgQHS";
-	private final String readerConsumerAccessToken = "2898015615-bxWvZ4hWjdWTmxidM9ATQg5tU3R6Xe9ghsH3o32";
-	private final String readerConsumerAccessSecret = "BTlUcLj260xL2nVBBxxI2BsfyITiBn3mc4ChnKJ93X6X6";
+	private final String readerConsumerKey = "QHXZQIOqIeRxeoWAOJFQiR9o6";
+	private final String readerConsumerSecret = "68pyO4IqwYJT3G047ckTlUOFnbGNa0aIz0G2k45HMaTfl9MteC";
+	private final String readerConsumerAccessToken = "2902308274-CvVeRCchQTwymxHI4k15jn4vGeAE6oBClSM0IGu";
+	private final String readerConsumerAccessSecret = "BwfLGINXukDnDA7nFjwMr7oWB4LD2JfOmSqqoBiLQm5gW";
 	
 	private Twitter twitterSender;
 	private final Twitter twitterReceiver = new TwitterTemplate(adminConsumerKey, adminConsumerSecret, adminConsumerAccessToken, adminConsumerAccessSecret);;
@@ -59,9 +59,14 @@ public class TwitterConnectionService {
 		}
 	}
 
-	public TwitterProfile getProfile() {
+	public TwitterProfile getReceiverProfile() {
 		LOGGER.info("Profile retrieved successfully");
 		return twitterReceiver.userOperations().getUserProfile();
+	}
+	
+	public TwitterProfile getSenderProfile() {
+		LOGGER.info("Profile retrieved successfully");
+		return twitterSender.userOperations().getUserProfile();
 	}
 	
 	public CursoredList<TwitterProfile> getFriends() {

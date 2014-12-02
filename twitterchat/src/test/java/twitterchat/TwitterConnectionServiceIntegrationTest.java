@@ -51,7 +51,7 @@ public class TwitterConnectionServiceIntegrationTest {
     
     @Test
     public void getUserProfile() {
-    	TwitterProfile profile = service.getProfile();
+    	TwitterProfile profile = service.getReceiverProfile();
     	Assert.assertEquals(TWITTER_NAME, profile.getName());
     }
     
