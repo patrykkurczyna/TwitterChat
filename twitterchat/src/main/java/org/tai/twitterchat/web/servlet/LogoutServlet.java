@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class LogoutServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = -5083741594793070185L;
+
 	/**
 	 * logout current user
 	 */

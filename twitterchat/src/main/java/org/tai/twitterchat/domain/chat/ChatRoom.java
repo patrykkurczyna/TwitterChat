@@ -68,7 +68,8 @@ public class ChatRoom {
 	 * @param message {@link ChatMessage}
 	 */
 	public void sendMessage(User sender, String message) {
-		if (participants.contains(sender.getLogin()) && !(sender.getUserRole() == UserRole.OBSERVER)){
+		if (participants.contains(sender.getLogin()) && !(sender.getUserRole() == UserRole.READER)){
+			service = sender.getService();
 			DirectMessage directMsg = service.sendMessage(MSG_RECEIVER, message);
 			messages.add(directMsg);
 			LOGGER.info("Room: " + name + " user: " + sender + " sends message: " + message);

@@ -12,7 +12,7 @@ public enum UsersStorage {
 	private List<User> users = Arrays.asList(
 			new User("admin", "admin", UserRole.ADMIN), 
 			new User("writer", "writer", UserRole.WRITER),
-			new User("reader", "reader", UserRole.OBSERVER));
+			new User("reader", "reader", UserRole.READER));
 
 	public boolean checkCredentials(String username, String password) {
 		for (User user : users) {

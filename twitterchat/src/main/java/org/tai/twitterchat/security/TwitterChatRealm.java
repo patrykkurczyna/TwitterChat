@@ -10,7 +10,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.tai.twitterchat.domain.model.User;
-import org.tai.twitterchat.domain.model.UserRole;
 
 /**
  * {@link=Realm} implementation using {@link=AuthorizingRealm}
