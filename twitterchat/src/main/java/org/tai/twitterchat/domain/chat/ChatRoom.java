@@ -7,6 +7,7 @@ import java.util.TreeSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.social.RateLimitExceededException;
 import org.springframework.social.twitter.api.DirectMessage;
 import org.tai.twitterchat.domain.model.User;
 import org.tai.twitterchat.domain.model.UserRole;
@@ -52,7 +53,7 @@ public class ChatRoom {
 	/**
 	 * Method for retrieve messages from twitter and populate our chat
 	 */
-	public void synchronizeWithTwitter() {
+	public void synchronizeWithTwitter() throws RateLimitExceededException{
 		for (DirectMessage msg : service.getDirectMessages()){
 			if (!messageAlreadyExists(msg)) {
 				LOGGER.info("There is a new message from twitter! Adding to chat: " + msg.getText() + " from " + msg.getSender().getName());

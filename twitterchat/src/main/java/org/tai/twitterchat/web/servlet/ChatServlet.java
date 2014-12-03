@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.social.RateLimitExceededException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.tai.twitterchat.domain.chat.ChatRoom;
@@ -19,6 +22,7 @@ import org.tai.twitterchat.domain.model.UserRole;
 @RequestMapping("/")
 public class ChatServlet extends HttpServlet {
 	
+    private static final Logger LOGGER = LoggerFactory.getLogger(ChatServlet.class);
 	private static ChatRoom chatRoom = null;
 	private static final long serialVersionUID = 9049787261928772648L;
 	private static final String FAKE_PASS = "pass";
@@ -37,7 +41,12 @@ public class ChatServlet extends HttpServlet {
 		
 		// If chat is created
     	if (chatRoom != null) {
-    		chatRoom.synchronizeWithTwitter();
+    		try {
+    			chatRoom.synchronizeWithTwitter();    			
+    		} catch (RateLimitExceededException e) {
+				LOGGER.error("Twitter rate limit has exceeded!");
+    			request.setAttribute("rateLimit", true);
+    		}
 
 	    	Subject currentUser = SecurityUtils.getSubject(); 
 	    	// if user has role writer we show him send button, otherwise it is not visible
@@ -68,10 +77,14 @@ public class ChatServlet extends HttpServlet {
     		// Sending message - we need to set new sender in the room
     		String user = SecurityUtils.getSubject().getPrincipal().toString();
     		String pass = FAKE_PASS;
-			sender = new User(user, pass, UserRole.WRITER);   
-			chatRoom.addParticipant(sender.getLogin());
-    		chatRoom.sendMessage(sender, msg);
-    		chatRoom.synchronizeWithTwitter();
+			sender = new User(user, pass, UserRole.WRITER);  
+			try {
+				chatRoom.addParticipant(sender.getLogin());
+				chatRoom.sendMessage(sender, msg);
+				chatRoom.synchronizeWithTwitter();				
+			} catch (RateLimitExceededException e) {
+				LOGGER.error("Twitter rate limit has exceeded!");
+			}
     		response.sendRedirect(this.getServletConfig().getServletContext().getContextPath() + "/chat"); 
     	} else {//when roomCreated header is null so POST redirect is sent not in order to create room
     		request.getRequestDispatcher("/jsp/noChatRoom.jsp").forward(request, response);   		

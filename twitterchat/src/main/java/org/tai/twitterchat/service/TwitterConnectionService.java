@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.social.RateLimitExceededException;
 import org.springframework.social.twitter.api.CursoredList;
 import org.springframework.social.twitter.api.DirectMessage;
 import org.springframework.social.twitter.api.Twitter;
@@ -61,17 +62,17 @@ public class TwitterConnectionService {
 		}
 	}
 
-	public TwitterProfile getReceiverProfile() {
+	public TwitterProfile getReceiverProfile() throws RateLimitExceededException{
 		LOGGER.info("Profile retrieved successfully");
 		return twitterReceiver.userOperations().getUserProfile();
 	}
 	
-	public TwitterProfile getSenderProfile() {
+	public TwitterProfile getSenderProfile() throws RateLimitExceededException{
 		LOGGER.info("Profile retrieved successfully");
 		return twitterSender.userOperations().getUserProfile();
 	}
 	
-	public CursoredList<TwitterProfile> getFriends() {
+	public CursoredList<TwitterProfile> getFriends() throws RateLimitExceededException{
 		LOGGER.info("Friends retrieved successfully");
 		return twitterReceiver.friendOperations().getFriends();
 	}
@@ -82,12 +83,12 @@ public class TwitterConnectionService {
 	 * @param username Sender twitter screenName
 	 * @param msg Message text
 	 */
-	public DirectMessage sendMessage(String username, String msg) {
+	public DirectMessage sendMessage(String username, String msg) throws RateLimitExceededException{
 		LOGGER.info("Sending message: '" + "' to user: " + username);
 		return twitterSender.directMessageOperations().sendDirectMessage(username, msg);			
 	}
 
-	public List<DirectMessage> getDirectMessages() {
+	public List<DirectMessage> getDirectMessages() throws RateLimitExceededException{
 		return twitterReceiver.directMessageOperations().getDirectMessagesReceived(1, MSG_NUMBER);
 	}
 }
